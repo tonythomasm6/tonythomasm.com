@@ -40,6 +40,9 @@ jobs:
           name: Deploy Infra
           command: |
             chmod +x deploy-infra-stack.sh  # Ensure deploy-infra.sh is executable
+            cd cdk
+            npm install
+            cd ..
             ./deploy-infra-stack.sh
 
       # - run:

@@ -22,8 +22,28 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
-            chmod +x deploy.sh  # Ensure deploy.sh is executable
-            ./deploy.sh
+            chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
+            ./deploy-ui.sh
+    deploy-infra:
+    executor: node-executor
+    steps:
+      - checkout
+
+      # Install AWS CLI
+      - run:
+          name: Install AWS CLI
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y awscli
+
+      # Execute deploy.sh script
+      - run:
+          name: Deploy Infra
+          command: |
+            cd cdk
+            npm install
+            npm run build
+            cdk deploy CdkStack --require-approval never
 
 workflows:
   version: 2

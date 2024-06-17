@@ -5,5 +5,5 @@ echo "Running npm install and build"
 npm install
 npm run build
 echo "Deploying cdk"
-aws sts get-caller-identity
-cdk deploy CdkStack --require-approval never -v
+npm install -g aws-cdk@2.122.0
+cdk deploy CdkStack --require-approval never

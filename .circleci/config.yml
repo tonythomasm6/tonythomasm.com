@@ -11,20 +11,25 @@ jobs:
     steps:
       - checkout
 
-      # Install AWS CLI
       - run:
           name: Install AWS CLI 
           command: |
             sudo apt-get update
             sudo apt-get install -y awscli
 
-
-      # Execute deploy.sh script
       - run:
           name: Deploy to S3
           command: |
             chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
             ./deploy-ui.sh
+
+      - run:
+          name: Clear cloudfront cache
+          command: |
+            chmod +x invalidate-cloudfront-cache.sh
+            ./invalidate-cloudfront-cache
+
+
   deploy-infra:
     executor: node-executor
     steps:
@@ -45,18 +50,6 @@ jobs:
             cd ..
             ./deploy-infra-stack.sh
 
-      # - run:
-      #     name: Install AWS CDK
-      #     command: |
-      #       npm install aws-cdk@2.146.0
-      # # Execute deploy.sh script
-      # - run:
-      #     name: Deploy Infra
-      #     command: |
-      #       cd cdk
-      #       npm install
-      #       npm run build
-      #       cdk deploy CdkStack --require-approval never
 
 workflows:
   version: 2
@@ -79,4 +72,4 @@ workflows:
           filters:
             branches:
               only:
-                - main  # Replace with your main branch name
+                - main  

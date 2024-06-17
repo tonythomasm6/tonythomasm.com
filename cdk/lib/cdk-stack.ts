@@ -61,8 +61,7 @@ export class CdkStack extends cdk.Stack {
                 }
             ],
             viewerCertificate: {
-                // aliases: ['tonythomasm.com', 'www.tonythomas.com'], // ToDo
-                aliases: ['tonythomasm.com'],
+                aliases: ['tonythomasm.com', 'www.tonythomasm.com'], 
                 props: {
                     acmCertificateArn: certificate.certificateArn,
                     sslSupportMethod: 'sni-only',

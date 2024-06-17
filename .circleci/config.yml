@@ -1,0 +1,44 @@
+version: 2.1
+
+executors:
+  node-executor:
+    docker:
+      - image: circleci/node:14
+
+jobs:
+  build:
+    executor: node-executor
+    steps:
+      - checkout
+
+      # Install AWS CLI
+      - run:
+          name: Install AWS CLI
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y awscli
+
+      # Build your project (if necessary)
+      - run:
+          name: Build Project
+          command: npm install  # Example npm install command, adjust as needed
+      - run:
+          name: Build Project
+          command: npm run build  # Adjust as per your project setup
+
+      # Execute deploy.sh script
+      - run:
+          name: Deploy to S3
+          command: |
+            chmod +x deploy.sh  # Ensure deploy.sh is executable
+            ./deploy.sh
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - main  # Replace with your main branch name

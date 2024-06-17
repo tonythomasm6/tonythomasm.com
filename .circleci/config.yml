@@ -24,7 +24,7 @@ jobs:
           command: |
             chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
             ./deploy-ui.sh
-    deploy-infra:
+  deploy-infra:
     executor: node-executor
     steps:
       - checkout

@@ -7,5 +7,6 @@ import { EnvHelper } from './env-helper';
 
 const app = new cdk.App();
 new CdkStack(app, 'CdkStack', {
+  stackName: 'TonyThomasmComStack',
   env: EnvHelper.ENVIRONMENT
 });

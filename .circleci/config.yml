@@ -38,6 +38,12 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y awscli
 
+      # Install AWS CDK locally
+      - run:
+          name: Install AWS CDK
+          command: |
+            npm install aws-cdk@2.146.0
+            
       # Execute deploy.sh script
       - run:
           name: Deploy Infra

@@ -6,7 +6,7 @@ executors:
       - image: circleci/node:16
 
 jobs:
-  build:
+  deploy-ui:
     executor: node-executor
     steps:
       - checkout
@@ -29,9 +29,20 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build:
+      - DEPLOY INFRASTRUCTURE ?:
+          type: approval
+      - deploy-infra:
           context:
             - aws-context
+          requires:
+            - DEPLOY INFRASTRUCTURE ?
+      - DEPLOY UI ?:
+          type: approval
+      - deploy-ui:
+          context:
+            - aws-context
+          requires:
+            - DEPLOY UI ?
           filters:
             branches:
               only:

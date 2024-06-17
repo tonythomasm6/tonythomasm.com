@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: circleci/node:18.17.0
+      - image: circleci/node:22.2.0
 
 jobs:
   deploy-ui:

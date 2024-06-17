@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: circleci/node:16
+      - image: circleci/node:18
 
 jobs:
   deploy-ui:
@@ -13,12 +13,11 @@ jobs:
 
       # Install AWS CLI
       - run:
-          name: Install AWS CLI and Node.js 16.14.0
+          name: Install AWS CLI 
           command: |
             sudo apt-get update
             sudo apt-get install -y awscli
-            nvm install 16.14.0
-            nvm use 16.14.0
+
 
       # Execute deploy.sh script
       - run:
@@ -33,18 +32,10 @@ jobs:
 
       # Install AWS CLI
       - run:
-          name: Install AWS CLI and Node.js 16.14.0
+          name: Install AWS CLI 
           command: |
             sudo apt-get update
             sudo apt-get install -y awscli
-            nvm install 16.14.0
-            nvm use 16.14.0
-
-      # Install AWS CDK locally
-      - run:
-          name: Install AWS CDK
-          command: |
-            npm install aws-cdk@2.146.0
 
       # Execute deploy.sh script
       - run:

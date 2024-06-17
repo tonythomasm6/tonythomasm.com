@@ -6,5 +6,4 @@ npm install
 npm run build
 echo "Deploying cdk"
 aws sts get-caller-identity
-npx cdk --version
-npx cdk deploy CdkStack --require-approval never -v
+cdk deploy CdkStack --require-approval never -v

@@ -13,6 +13,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            background-color: #f0f0f0; /* Light gray background */
         }
         nav {
             background-color: #333;
@@ -33,50 +34,45 @@
         main {
             flex: 1;
             overflow-y: auto;
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-top: 1px solid #ccc; /* Light gray border */
+            border-bottom: 1px solid #ccc; /* Light gray border */
         }
         section {
             display: none;
-            padding: 20px;
         }
         section.active {
             display: block;
+            margin-top: 20px; /* Space between sections */
+            padding: 20px;
+            background-color: #e0e0e0; /* Lighter gray background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow */
         }
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 10px;
+            margin-top: 20px; /* Space between content and footer */
         }
         iframe {
             width: 100%;
-            height: calc(100vh - 100px); /* Adjust the height according to nav and footer */
+            height: calc(100vh - 150px); /* Adjust the height according to nav and footer */
             border: none;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#" onclick="showSection('about')">About</a>
-        <a href="#" onclick="showSection('blog')">Blog</a>
-        <a href="#" onclick="showSection('resume')">Resume</a>
+        <a href="#" onclick="loadSection('about')">About</a>
+        <a href="#" onclick="loadSection('blog')">Blog</a>
+        <a href="#" onclick="loadSection('resume')">Resume</a>
     </nav>
 
-    <main>
-        <!-- Placeholder content for About section -->
-        <section id="about" class="active">
-            <h2>About Me</h2>
-            <p>This is where you can write about yourself, your background, skills, interests, etc.</p>
-        </section>
-
-        <!-- Placeholder content for Blog section -->
-        <section id="blog">
-           <iframe src="blog.html"></iframe>
-        </section>
-
-        <!-- Content for Resume section -->
-        <section id="resume">
-            <iframe src="resume.html"></iframe>
-        </section>
+    <main id="mainContent">
+        <!-- Content will be loaded here -->
     </main>
 
     <footer>
@@ -84,15 +80,38 @@
     </footer>
 
     <script>
-        // Function to show/hide sections based on user selection
-        function showSection(sectionId) {
+        // Function to load sections dynamically
+        function loadSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
+
+            // Load the section based on ID
+            switch (sectionId) {
+                case 'about':
+                    document.getElementById('mainContent').innerHTML = '<iframe src="about.html"></iframe>';
+                    break;
+                case 'blog':
+                    document.getElementById('mainContent').innerHTML = '<iframe src="blog.html"></iframe>';
+                    break;
+                case 'resume':
+                    document.getElementById('mainContent').innerHTML = '<iframe src="resume.html"></iframe>';
+                    break;
+                default:
+                    break;
+            }
         }
+
+        // Function to load About section
+        function loadAboutSection() {
+            document.getElementById('mainContent').innerHTML = '<iframe src="about.html"></iframe>';
+        }
+
+        // Initially load the About section on page load
+        window.onload = function() {
+            loadSection('about');
+        };
     </script>
 </body>
 </html>

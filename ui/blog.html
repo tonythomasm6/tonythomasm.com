@@ -1,0 +1,90 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        /* Copy the styles related to the blog section from the original CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        main {
+            flex: 1;
+            overflow-y: auto;
+        }
+        section {
+            display: none;
+            padding: 20px;
+        }
+        section.active {
+            display: block;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 100px); /* Adjust the height according to nav and footer */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <main>
+        <!-- Placeholder content for Blog section -->
+        <section id="blog" class="active">
+            <h2>Blog</h2>
+            <p>This section can contain your latest blog posts, articles, or links to your blog.</p>
+            <!-- Add your blog content here -->
+            <article>
+                <h3>Blog Post Title</h3>
+                <p>Content of your blog post...</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Tony Thomas Manthuruthil. All rights reserved.
+    </footer>
+
+    <script>
+        // Function to show/hide sections based on user selection
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

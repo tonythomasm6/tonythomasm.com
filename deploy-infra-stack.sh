@@ -3,4 +3,4 @@
 cd cdk
 npm install
 npm run build
-cdk deploy CdkStack --require-approval never
+npx cdk deploy CdkStack --require-approval never

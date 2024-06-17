@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:16
 
 jobs:
   build:
@@ -15,7 +15,8 @@ jobs:
       - run:
           name: Install AWS CLI
           command: |
-            sudo pip install awscli
+            sudo apt-get update
+            sudo apt-get install -y awscli
 
       # Build your project (if necessary)
       - run:

@@ -18,14 +18,6 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y awscli
 
-      # Build your project (if necessary)
-      - run:
-          name: Build Project
-          command: npm install  # Example npm install command, adjust as needed
-      - run:
-          name: Build Project
-          command: npm run build  # Adjust as per your project setup
-
       # Execute deploy.sh script
       - run:
           name: Deploy to S3
@@ -38,6 +30,8 @@ workflows:
   build_and_deploy:
     jobs:
       - build:
+          context:
+            - aws-context
           filters:
             branches:
               only:

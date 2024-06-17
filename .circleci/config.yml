@@ -23,12 +23,6 @@ jobs:
             chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
             ./deploy-ui.sh
 
-      - run:
-          name: Clear cloudfront cache
-          command: |
-            chmod +x invalidate-cloudfront-cache.sh
-            ./invalidate-cloudfront-cache
-
 
   deploy-infra:
     executor: node-executor

@@ -1,2 +1,0 @@
-# tonythomasm.com
-Personal website

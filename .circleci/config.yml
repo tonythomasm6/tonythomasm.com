@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Deploy Infra
           command: |
-            chmod +x deploy-infra.sh  # Ensure deploy-infra.sh is executable
+            chmod +x deploy-infra-stack.sh  # Ensure deploy-infra.sh is executable
             ./deploy-infra-stack.sh
 
       # - run:

@@ -24,42 +24,13 @@ jobs:
             ./deploy-ui.sh
 
 
-  deploy-infra:
-    executor: node-executor
-    steps:
-      - checkout
-
-      # Install AWS CLI
-      - run:
-          name: Install AWS CLI 
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y awscli
-      - run:
-          name: Deploy Infra
-          command: |
-            chmod +x deploy-infra-stack.sh  # Ensure deploy-infra.sh is executable
-            ./deploy-infra-stack.sh
-
-
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - DEPLOY INFRASTRUCTURE ?:
-          type: approval
-      - deploy-infra:
-          context:
-            - aws-context
-          requires:
-            - DEPLOY INFRASTRUCTURE ?
-      - DEPLOY UI ?:
-          type: approval
       - deploy-ui:
           context:
             - aws-context
-          requires:
-            - DEPLOY UI ?
           filters:
             branches:
               only:

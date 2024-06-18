@@ -23,17 +23,18 @@ jobs:
             chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
             ./deploy-ui.sh
   
+  # using npx as aws-cdk is installed locally
   deploy-infra:
     executor: node-executor
     steps:
       - checkout
       - run:
-          name: commands execution
+          name: Deploying Infrastructure
           command: |
             cd cdk
             npm install aws-cdk
             npm install
-            npx cdk deploy --require-approval-never
+            npx cdk deploy --require-approval-never 
 
 
 

@@ -4,9 +4,6 @@ executors:
   node-executor:
     docker:
       - image: cimg/node:22.2.0
-  cdk-executor:
-    docker:
-      - image: circleci/node:14.17
 
 jobs:
   deploy-ui:

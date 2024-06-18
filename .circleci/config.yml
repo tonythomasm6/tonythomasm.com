@@ -34,7 +34,7 @@ jobs:
           name: commands execution
           command: |
             cd cdk
-            npm install -g aws-cdk
+            npm install aws-cdk
             npm install
             cdk depoloy --require-approval-never
 

@@ -36,7 +36,7 @@ jobs:
             cd cdk
             npm install aws-cdk
             npm install
-            npx cdk depoloy --require-approval-never
+            npx cdk deploy --require-approval-never
 
 
 

@@ -5,19 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        main {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1e88e5; /* Changed blog title color to a shade of blue */
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0d47a1; /* Darker shade of blue on hover */
+        }
+
+        article {
+            margin-bottom: 40px; /* Increased margin between articles */
+            padding-bottom: 20px; /* Added padding at the bottom of each article */
+            border-bottom: 1px solid #ddd; /* Added a subtle border between articles */
+        }
+
+        .blog-link {
+            font-weight: bold;
+        }
+
+        .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
     <main>
         <section id="blog" class="active">
             <h2>Blog</h2>
-            <p>This section can contain your latest blog posts, articles, or links to your blog.</p>
-            <!-- Add your blog content here -->
+            <p>Here are a few of my thoughts, experience and learnings.</p>
+            
+            <!-- Blog links with dates -->
             <article>
-                <h3>Blog Post Title</h3>
-                <p>Content of your blog post...</p>
+                <a href="blogs/blog1_aws.html" class="blog-link"><h3>Experience taking AWS certification</h3></a>
+                <p class="date">June 1, 2024</p>
+                <p>I achieved my target of getting AWS Cloud practitioner certification on September, 2023. Here is the details of my journey</p>
             </article>
+            <article>
+                <a href="" class="blog-link"><h3>Coming soon</h3></a>
+                <p class="date">May 15, 2024</p>
+                <!-- <p>Coming soon ...</p> -->
+            </article>
+            <article>
+                <a href="" class="blog-link"><h3>Coming soon</h3></a>
+                <p class="date">April 27, 2024</p>
+                <!-- <p>Coming soon...</p> -->
+            </article>
+            <!-- Add more blog links as needed -->
         </section>
     </main>
-
 </body>
 </html>

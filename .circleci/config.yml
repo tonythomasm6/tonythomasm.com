@@ -41,13 +41,27 @@ jobs:
 
 
 workflows:
-  version: 2
   build_and_deploy:
     jobs:
-      - deploy-infra:
-          context:
-            - aws-context
+      - APPROVE-DEPLOY-INFRA ?:
+          type: approval
           filters:
             branches:
               only:
-                - main  
+                - main
+      - deploy-infra:
+          context:
+            - aws-context
+          requires:
+            - APPROVE-DEPLOY-INFRA ?
+      - APPROVE-DEPLOY-UI ?:
+          type: approval
+          filters:
+            branches:
+              only:
+                - main
+      - deploy-ui:
+          context:
+            - aws-context
+          requires:
+            - APPROVE-DEPLOY-UI ?

@@ -4,6 +4,10 @@ executors:
   node-executor:
     docker:
       - image: cimg/node:22.2.0
+  cdk-executor:
+    docker:
+      - image: circleci/node:14.17
+    working directory: ~/project
 
 jobs:
   deploy-ui:
@@ -22,13 +26,26 @@ jobs:
           command: |
             chmod +x deploy-ui.sh  # Ensure deploy-ui.sh is executable
             ./deploy-ui.sh
+  
+  deploy-infra:
+    executor: cdk-executor
+    steps:
+      - checkout
+      - run:
+          name: commands execution
+          command: |
+            cd cdk
+            npm install -g aws-cdk
+            npm install
+            cdk depoloy --require-approval-never
+
 
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - deploy-ui:
+      - deploy-infra:
           context:
             - aws-context
           filters:

@@ -19,21 +19,24 @@
         }
 
         main {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            width: 90%; /* Adjusted for responsiveness */
-            max-width: 600px;
-            margin: 20px auto; /* Centered on the page */
-        }
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 90%; /* Adjusted for responsiveness */
+    max-width: 600px;
+    margin: 20px auto; /* Centered on the page */
+    display: flex;
+    flex-direction: column; /* Ensure main stretches to full height */
+}
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            max-width: 80%; /* Adjusted for responsiveness */
-            margin: 0 auto; /* Centered on the page */
-        }
+.container {
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto; /* Centered on the page */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-width: 80%; /* Adjusted for responsiveness */
+}
 
         .profile-pic {
             width: 100%; /* Ensures image resizes to fit container */
@@ -77,7 +80,7 @@
 </head>
 <body>
     <main>
-        <section id="about" class="active">
+        <!-- <section id="about" class="active"> -->
             <div class="container">
                 <img src="assets/profile-pic.jpeg" alt="Profile Picture" class="profile-pic">
                 <h2>About Me</h2>
@@ -85,7 +88,7 @@
                     Software developer specialized in Java-based web applications with over 7 years of experience. Possesses strong leadership, communication, and teamwork skills. Comprehensive knowledge in Java, Python, various frameworks, microservices, SQL, Linux systems, server deployment, migration, monitoring, and cloud platforms like AWS and GCP.
                 </p>
             </div>
-        </section>
+        <!-- </section> -->
     </main>
 </body>
 </html>

@@ -27,7 +27,7 @@ jobs:
             ./deploy-ui.sh
   
   deploy-infra:
-    executor: cdk-executor
+    executor: node-executor
     steps:
       - checkout
       - run:

@@ -7,7 +7,6 @@ executors:
   cdk-executor:
     docker:
       - image: circleci/node:14.17
-    working directory: ~/project
 
 jobs:
   deploy-ui:

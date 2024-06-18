@@ -23,19 +23,22 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             overflow: hidden;
-            width: 80%;
+            width: 90%; /* Adjusted for responsiveness */
             max-width: 600px;
-            margin: 20px;
+            margin: 20px auto; /* Centered on the page */
         }
 
         .container {
             text-align: center;
             padding: 20px;
+            max-width: 80%; /* Adjusted for responsiveness */
+            margin: 0 auto; /* Centered on the page */
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 100%; /* Ensures image resizes to fit container */
+            max-width: 150px; /* Limit maximum size */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 50%;
             object-fit: cover;
             display: block;
@@ -53,6 +56,9 @@
             text-align: justify;
             color: #666;
             line-height: 1.6;
+            overflow-wrap: break-word; /* Ensure long words wrap */
+            word-wrap: break-word;
+            hyphens: auto; /* Allow hyphenation */
         }
 
         @keyframes fadeIn {
